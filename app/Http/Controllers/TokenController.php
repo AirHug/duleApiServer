@@ -40,7 +40,10 @@ class TokenController extends Controller
         if (is_null($player)) {
             return response()->json($this->login_fail);
         }
-        return response()->json(array_add($this->login_success, 'token', $player->createToken('game')->accessToken));
+        $token = $player->createToken('game')->accessToken;
+        $player->token = $token;
+        $player->save();
+        return response()->json(array_add($this->login_success, 'token', $token));
 
     }
 

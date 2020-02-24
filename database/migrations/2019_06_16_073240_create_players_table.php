@@ -20,6 +20,7 @@ class CreatePlayersTable extends Migration
             $table->unsignedInteger('gold')->comment('金')->nullable();
             $table->string('nickname', 32)->comment('昵称')->nullable();
             $table->string('mobile', 11)->comment('手机号码')->unique();
+            $table->string('token', 2048)->comment('token 数据库缓存')->default('');
             $table->boolean('is_cheater')->comment('作弊账户')->default(false);
             $table->string('password');
             $table->timestamps();

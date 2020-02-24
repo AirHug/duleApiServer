@@ -29,6 +29,7 @@ class Player extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password'
+        'password',
+        'is_cheater'
     ];
 }
